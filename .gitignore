@@ -1,0 +1,21 @@
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+
+# Python virtual environment and bytecode
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# CodeVibe local temporary files (note: codevibe-reports/*.report.json SHOULD be committed)
+.codevibe/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
