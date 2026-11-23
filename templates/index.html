@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Hourly Weather Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="page-header">
+    <div>
+       <h1>Hourly Weather Planner</h1>
+       <p class="subtitle"> Plan your day with the next 24 hours of forecast data.</p>
+    </div>
+    <div class="node-box">
+       <span class="node-label"> Served by</span>
+       <span id="active-node-badge">{{ node_identity }}</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="control-panel" aria-label="Choose a location">
+       <div class="preset-row">
+          <button type="button" class="preset-btn" data-city="Kigali" data-lat="-1.9441" data-lon="30.0619">Kigali</button>
+          <button type="button" class="preset-btn" data-city="Nairobi" data-lat="-1.2921" data-lon="36.8219">Nairobi</button>
+          <button type="button" class="preset-btn" data-city="Kampala" data-lat="0.3476" data-lon="32.5825">Kampala</button>
+          <button type="button" class="preset-btn" data-city="London" data-lat="51.5072" data-lon="-0.1276">London</button>
+       </div>
+       
+       <div class="field-group">
+          <label for="city-field">City label</label>
+          <input id="city-field" type="text" value="Kigali" maxlength="60">
+       </div>
+       <div class="field-group">
+          <label for="lat-field">Latitude</label>
+          <input id="lat-field" type="text" inputmode="decimal" value="-1.9441">
+       </div>
+       <div class="field-group">
+         <label for="lon-field">Longitude</label>
+         <input id="lon-field" type="text" inputmode="decimal" value="30.0619">
+       </div>
+       <button id="fetch-btn" type="button">Get forecast</button> 
+      </section>
+
+      <section class="control-panel" aria-label="Search, filter and sort">
+        <div class="field-group">
+           <label for="time-search-input">Search</label>
+           <input id="time-search-input" type="text" placeholder="Search hour (e.g. 14:00)...">
+        </div>
+        <div class="field-group">
+          <label for="condition-filter">Filter</label>
+          <select id="condition-filter">
+             <option value="all">All conditions</option>
+             <option value="rainy">Rainy (rain &gt; 0 mm)</option>
+             <option value="windy">Windy (wind &ge; 15 km/h)</option>
+             <option value="warm">Warm (temp &ge; 22 &deg;C) </option>
+          </select>
+         </div>
+         <div class="field-group">
+            <label for="metric-sort">Sort by</label>
+            <select id="metric-sort">
+               <option value="timestamp">Time</option>
+               <option value="temp_celsius">Temperature</option>
+               <option value="humidity_pct">Humidity</option>
+               <option value="wind_kmh">Wind speed</option>
+            </select>
+         </div>
+         <div class="field-group">
+            <label for="sort-direction">Direction</label>
+            <select id="sort-direction">
+               <option value="asc">Ascending</option>
+               <option value="desc">Descending</option>
+            </select>
+         </div>
+      </section>
+
+      <div id="status-banner" role="alert"></div>
+      
+      <section class="table-wrap" aria-label="Hourly forecast">
+         <h2 id="table-title">Forecast</h2>
+         <table>
+            <thead>
+               <tr>
+                  <th scope="col">Time</th>
+                  <th scope="col">Temp (&deg;C)</th>
+                  <th scope="col">Humidity(%)</th>
+                  <th scope="col">Wind (km/h)</th>
+                  <th scope="col">Rain (mm)</th>
+               </tr>
+            </thead>
+            <tbody id="forecast-table-body"></tbody>
+         </table>         
+      </section>
+   </main>
+
+   <footer>
+      Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>
+      (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"> CC BY 4.0</a>).
+   </footer>
+
+   <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>   
+
+    
