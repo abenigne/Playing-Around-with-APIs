@@ -88,8 +88,7 @@ Result: Web-01 and Web-02 alternate, so traffic is shared between both servers.
 - **SSH key problems:** I had keys in Git Bash and WSL. I found the one the servers accepted and used `ssh -i`.
 - **Servers rebuilt:** new IP addresses meant updating the load balancer config.
 
-## AI assistance
-I used an AI assistant (Claude) for help with code, debugging, deployment steps and this README. I deployed and tested the app myself.
+
 
 ## Credits
 Open-Meteo (weather data), Flask, Requests, python-dotenv, Gunicorn, Nginx.
