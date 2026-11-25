@@ -6,7 +6,7 @@ Shows the next 24 hours of weather for a city so you can plan your day. You can 
 - **Live app (load balancer):** http://18.133.180.242
 - **Web-01:** http://18.133.182.194
 - **Web-02:** http://13.135.166.54
-- **Demo video:** PASTE-VIDEO-LINK-HERE
+- **Demo video:** https://youtu.be/tNh9TgtC7Vo
 - **Repo:** https://github.com/abenigne/Playing-Around-with-APIs
 
 ## Credentials
